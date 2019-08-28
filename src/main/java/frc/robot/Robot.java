@@ -15,6 +15,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.CG_FoamLine;
 import frc.robot.commands.C_Loop;
 import frc.robot.commands.C_SetRoller;
+import frc.robot.subsystems.SS_Cooler;
+import frc.robot.subsystems.SS_Press;
 import frc.robot.subsystems.SS_Roller;
 
 /**
@@ -25,12 +27,23 @@ import frc.robot.subsystems.SS_Roller;
  * project.
  */
 public class Robot extends TimedRobot {
+  private static SS_Cooler ss_cooler = new SS_Cooler();
+  private static SS_Press ss_press = new SS_Press();
   private static SS_Roller ss_roller = new SS_Roller();
   public static OI m_oi;
+
+  public static SS_Cooler getCooler() {
+    return ss_cooler;
+  }
 
   public static SS_Roller getRoller(){
     return ss_roller;
   }
+
+  public static SS_Press getPress() {
+    return ss_press;
+  }
+
   /**
    * 
    * This function is run when the robot is first started up and should be

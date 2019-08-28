@@ -22,6 +22,11 @@ public class C_Oven extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    if (state) {
+      System.out.println("Closing Oven");
+    } else {
+      System.out.println("Opening Oven");
+    }
   }
 
   // Called repeatedly when this Command is scheduled to run

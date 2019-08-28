@@ -1,10 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-
 package frc.robot;
 
 /**
@@ -20,7 +13,10 @@ public class RobotMap {
   //DIO
   public static final int ROLLER_SWITCH = 0;
   public static final int ESTOP = 28; //TODO:
-  
+
+  public static final int ROLLER_ENCODER_A = 8;
+  public static final int ROLLER_ENCODER_B = 9;
+
 
   //
   public static final int OVEN_UP = 3;
@@ -30,5 +26,6 @@ public class RobotMap {
   public static final int PRESS_REVERSE = 0;
 
 
-
+  public static final int COOLER_ON = 4;
+  public static final int COOLER_OFF = 5;
 }
