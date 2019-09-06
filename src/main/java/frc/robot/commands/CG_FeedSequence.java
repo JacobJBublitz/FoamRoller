@@ -12,9 +12,7 @@ public class CG_FeedSequence extends CommandGroup {
             addSequential(new C_ActivateCooler());
         }
 
-        addSequential(new C_SetRoller(-0.5));
-        addSequential(new C_WaitForRollerDistance(distance));
-        addSequential(new C_SetRoller(0.0));
+        addSequential(new C_AdvanceRoller(0.5, distance));
 
         if (shouldCoolFoam) {
             addSequential(new C_DeactivateCooler());

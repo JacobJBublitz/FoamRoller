@@ -22,11 +22,11 @@ public class RobotMap {
 
 
   //
-  public static final int OVEN_UP = 3;
-  public static final int OVEN_DOWN = 2;
+  public static final int OVEN_UP = 1;
+  public static final int OVEN_DOWN = 0;
 
-  public static final int PRESS_FORWARD = 1;
-  public static final int PRESS_REVERSE = 0;
+  public static final int PRESS_FORWARD = 3;
+  public static final int PRESS_REVERSE = 2;
 
 
   public static final int COOLER_ON = 4;

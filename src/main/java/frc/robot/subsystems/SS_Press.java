@@ -13,10 +13,12 @@ public class SS_Press extends Subsystem {
     }
 
     public void openPress() {
+        System.out.println("Opening press");
         pressSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 
     public void closePress() {
+        System.out.println("Closing press");
         pressSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 }

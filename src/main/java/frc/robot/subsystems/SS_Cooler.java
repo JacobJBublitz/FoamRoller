@@ -13,10 +13,12 @@ public class SS_Cooler extends Subsystem {
     }
 
     public void activateCooler() {
+        System.out.println("Activating cooler");
         coolerSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 
     public void deactivateCooler() {
+        System.out.println("Deactivating cooler");
         coolerSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 }

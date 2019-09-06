@@ -25,13 +25,15 @@ public class SS_Roller extends Subsystem {
   public SS_Roller(){
     endOfRoll = new DigitalInput(RobotMap.MATERIAL_DETECTOR);
     feeder = new CANSparkMax(RobotMap.FEEDER_MOTOR, MotorType.kBrushless);
+    feeder.setInverted(true);
 
     rollerEncoder.setDistancePerPulse(1.0 / 256.0);
   }
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("Roller Distance", rollerEncoder.getDistance());
+    SmartDashboard.putNumber("Roller Distance", getRollerDistance());
+    SmartDashboard.putBoolean("Has Material", hasMaterial());
   }
 
   public void setSpeed(double speed){
@@ -39,7 +41,7 @@ public class SS_Roller extends Subsystem {
   }
 
   public boolean hasMaterial(){
-    return endOfRoll.get();
+    return !endOfRoll.get();
   }
 
   public double getRollerDistance() {
