@@ -16,6 +16,7 @@ import frc.robot.commands.CG_FoamLine;
 import frc.robot.commands.C_Loop;
 import frc.robot.commands.C_SetRoller;
 import frc.robot.subsystems.SS_Cooler;
+import frc.robot.subsystems.SS_Oven;
 import frc.robot.subsystems.SS_Press;
 import frc.robot.subsystems.SS_Roller;
 
@@ -30,6 +31,7 @@ public class Robot extends TimedRobot {
   private static SS_Cooler ss_cooler = new SS_Cooler();
   private static SS_Press ss_press = new SS_Press();
   private static SS_Roller ss_roller = new SS_Roller();
+  private static SS_Oven ss_oven = new SS_Oven();
   public static OI m_oi;
 
   public static SS_Cooler getCooler() {
@@ -42,6 +44,10 @@ public class Robot extends TimedRobot {
 
   public static SS_Press getPress() {
     return ss_press;
+  }
+
+  public static SS_Oven getOven() {
+    return ss_oven;
   }
 
   /**

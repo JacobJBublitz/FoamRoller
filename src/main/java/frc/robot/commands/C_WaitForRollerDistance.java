@@ -1,7 +1,6 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
 public class C_WaitForRollerDistance extends Command {
@@ -14,6 +13,17 @@ public class C_WaitForRollerDistance extends Command {
     @Override
     protected void initialize() {
         Robot.getRoller().resetRollerDistance();
+    }
+
+    @Override
+    protected void execute() {
+        // If the oven paper rips stop everything
+        if (!Robot.getOven().isDetectingPaper()) {
+            Robot.getRoller().setSpeed(0.0);
+            System.err.println("Detected a rip in the oven paper, stopping feed roller.");
+
+            // TODO: Force the code to crash???
+        }
     }
 
     @Override

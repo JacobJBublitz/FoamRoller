@@ -11,8 +11,11 @@ public class RobotMap {
   public static final int FEEDER_MOTOR = 11;
 
   //DIO
-  public static final int ROLLER_SWITCH = 0;
+  public static final int MATERIAL_DETECTOR = 0;
+  public static final int OVEN_PAPER_DETECTOR = 1;
+  public static final int FINISHED_PART_DETECTOR = 2;
   public static final int ESTOP = 28; //TODO:
+
 
   public static final int ROLLER_ENCODER_A = 8;
   public static final int ROLLER_ENCODER_B = 9;

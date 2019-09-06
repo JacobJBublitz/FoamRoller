@@ -20,15 +20,11 @@ public class SS_Roller extends Subsystem {
 
   private CANSparkMax feeder;
 
-  private DoubleSolenoid oven;
-
   private Encoder rollerEncoder = new Encoder(RobotMap.ROLLER_ENCODER_A, RobotMap.ROLLER_ENCODER_B);
 
   public SS_Roller(){
-    endOfRoll = new DigitalInput(RobotMap.ROLLER_SWITCH);
+    endOfRoll = new DigitalInput(RobotMap.MATERIAL_DETECTOR);
     feeder = new CANSparkMax(RobotMap.FEEDER_MOTOR, MotorType.kBrushless);
-
-    oven = new DoubleSolenoid(RobotMap.OVEN_UP, RobotMap.OVEN_DOWN);
 
     rollerEncoder.setDistancePerPulse(1.0 / 256.0);
   }
@@ -42,15 +38,7 @@ public class SS_Roller extends Subsystem {
     feeder.set(speed);
   }
 
-  public void closeOven(boolean state) {
-    if(state){
-      oven.set(DoubleSolenoid.Value.kReverse);
-    } else {
-      oven.set(DoubleSolenoid.Value.kForward);
-    }
-  }
-
-  public boolean getEndOfRoll(){
+  public boolean hasMaterial(){
     return endOfRoll.get();
   }
 
