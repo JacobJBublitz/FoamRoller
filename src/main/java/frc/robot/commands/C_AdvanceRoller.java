@@ -18,6 +18,7 @@ public class C_AdvanceRoller extends Command {
     protected void initialize() {
         Robot.getRoller().resetRollerDistance();
         Robot.getRoller().setSpeed(speed);
+        Robot.getRoller().resetCutoutCount();
     }
 
     @Override
