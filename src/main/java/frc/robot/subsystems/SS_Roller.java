@@ -22,7 +22,7 @@ public class SS_Roller extends Subsystem {
 
     private Encoder rollerEncoder = new Encoder(RobotMap.ROLLER_ENCODER_A, RobotMap.ROLLER_ENCODER_B);
     private DigitalInput cutoutSensor = new DigitalInput(RobotMap.FINISHED_PART_DETECTOR);
-    private Counter cutoutCounter = new Counter(new DigitalInput(RobotMap.FINISHED_PART_DETECTOR));
+    private Counter cutoutCounter = new Counter(cutoutSensor);
 
     public SS_Roller() {
         endOfRoll = new DigitalInput(RobotMap.MATERIAL_DETECTOR);
