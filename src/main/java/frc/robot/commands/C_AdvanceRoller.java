@@ -1,6 +1,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Constants;
 import frc.robot.Robot;
 
 public class C_AdvanceRoller extends Command {
@@ -22,21 +23,15 @@ public class C_AdvanceRoller extends Command {
     }
 
     @Override
-    protected void execute() {
-        // If the oven paper rips stop everything
-        if (!Robot.getOven().isDetectingPaper()) {
-            System.out.println("Detected a rip in the oven paper, halting.");
-            new CG_Cleanup().start();
+    protected void end() {
+        Robot.getRoller().setSpeed(0.0);
+        if (Robot.getRoller().getCutoutCount() < Constants.EXPECTED_CUTOUT_COUNT) {
+            Robot.getPress().addMissedCutout();
         }
     }
 
     @Override
-    protected void end() {
-        Robot.getRoller().setSpeed(0.0);
-    }
-
-    @Override
     protected boolean isFinished() {
-        return Robot.getRoller().getRollerDistance() >= targetDistance;
+        return Robot.getRoller().getRollerDistance() >= targetDistance || !Robot.getOven().isDetectingPaper();
     }
 }
