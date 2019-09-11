@@ -20,25 +20,25 @@ public class SS_FailureLight extends Subsystem {
     private boolean estopped = false;
 
     static {
-        ShuffleboardTab tab = Shuffleboard.getTab("Status");
-        estopEntry = tab.add("EStopped", false)
-                .withWidget(BuiltInWidgets.kBooleanBox)
-                .getEntry();
+//        ShuffleboardTab tab = Shuffleboard.getTab("Status");
+//        estopEntry = tab.add("EStopped", false)
+//                .withWidget(BuiltInWidgets.kBooleanBox)
+//                .getEntry();
     }
 
     @Override
     public void periodic() {
-        boolean estopValue = !estopButton.get();
-        if (estopValue && !estopped) {
-            estopped = true;
-            setFailure(true);
-
-            Robot.getRoller().setSpeed(0.0);
-            Robot.getPress().endClear();
-            System.out.println("Estopping!");
-            Scheduler.getInstance().removeAll();
-        }
-        estopEntry.setBoolean(estopped);
+//        boolean estopValue = !estopButton.get();
+//        if (estopValue && !estopped) {
+//            estopped = true;
+//            setFailure(true);
+//
+//            Robot.getRoller().setSpeed(0.0);
+//            Robot.getPress().endClear();
+//            System.out.println("Estopping!");
+//            Scheduler.getInstance().removeAll();
+//        }
+//        estopEntry.setBoolean(estopped);
     }
 
     @Override
