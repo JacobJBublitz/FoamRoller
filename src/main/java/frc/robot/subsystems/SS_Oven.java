@@ -22,6 +22,8 @@ public class SS_Oven extends Subsystem {
 
         hasPaperEntry = tab.add("Has Paper", false)
                 .withWidget(BuiltInWidgets.kBooleanBox)
+                .withSize(2, 2)
+                .withPosition(0, 0)
                 .getEntry();
     }
 
@@ -32,16 +34,16 @@ public class SS_Oven extends Subsystem {
 
     public void closeOven(boolean state) {
         if (state) {
-            System.out.println("Closing oven");
+            System.err.println("Closing oven");
             ovenSolenoid.set(DoubleSolenoid.Value.kReverse);
         } else {
-            System.out.println("Opening oven");
+            System.err.println("Opening oven");
             ovenSolenoid.set(DoubleSolenoid.Value.kForward);
         }
     }
 
     public boolean isDetectingPaper() {
-        return !paperDetector.get();
+        return paperDetector.get();
     }
 
     @Override

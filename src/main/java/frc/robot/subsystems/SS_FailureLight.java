@@ -35,7 +35,7 @@ public class SS_FailureLight extends Subsystem {
 //
 //            Robot.getRoller().setSpeed(0.0);
 //            Robot.getPress().endClear();
-//            System.out.println("Estopping!");
+//            System.err.println("Estopping!");
 //            Scheduler.getInstance().removeAll();
 //        }
 //        estopEntry.setBoolean(estopped);

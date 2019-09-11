@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import frc.robot.commands.CG_Cleanup;
 import frc.robot.commands.C_Loop;
 import frc.robot.subsystems.SS_FailureLight;
@@ -56,7 +57,8 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         m_oi = new OI();
-        // chooser.addOption("My Auto", new MyAutoCommand());
+
+        Shuffleboard.selectTab("Status");
     }
 
     /**
@@ -79,6 +81,9 @@ public class Robot extends TimedRobot {
     @Override
     public void disabledInit() {
         Scheduler.getInstance().removeAll();
+
+        System.err.println("\n\n\nEND");
+        System.err.printf("%d piece(s) have been completed%n", Robot.getRoller().getTotalCutouts());
     }
 
     @Override
@@ -99,6 +104,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void autonomousInit() {
+        System.err.println("\n\n\nSTART");
         if (loopCommand != null) {
             loopCommand.cancel();
         }
@@ -106,6 +112,7 @@ public class Robot extends TimedRobot {
         loopCommand = new C_Loop();
         loopCommand.start();
         Robot.getPress().resetMissedCutouts();
+        Robot.getRoller().resetTotalCutouts();
         Robot.getFailureLight().setFailure(false);
         Robot.getFailureLight().clearEstop();
     }
@@ -120,6 +127,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopInit() {
+        System.err.println("\n\n\nSTART");
         new CG_Cleanup().start();
         Robot.getFailureLight().setFailure(false);
         Robot.getFailureLight().clearEstop();

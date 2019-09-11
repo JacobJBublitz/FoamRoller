@@ -17,18 +17,18 @@ public class SS_Press extends Subsystem {
     }
 
     public void openPress() {
-        System.out.println("Opening press");
+        System.err.println("Opening press");
         pressSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 
     public void closePress() {
-        System.out.println("Closing press");
+        System.err.println("Closing press");
         pressSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
     public void addMissedCutout() {
         missedCutouts++;
-        System.out.println("Didn't detect the correct amount of cutouts");
+        System.err.println("Didn't detect the correct amount of cutouts");
     }
 
     public void resetMissedCutouts() {
@@ -40,12 +40,12 @@ public class SS_Press extends Subsystem {
     }
 
     public void startClear() {
-        System.out.println("Clearing foam from press");
+        System.err.println("Clearing foam from press");
         clearerSolenoid.set(DoubleSolenoid.Value.kForward);
     }
 
     public void endClear() {
-        System.out.println("Done clearing foam from press");
+        System.err.println("Done clearing foam from press");
         clearerSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
 }
